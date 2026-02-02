@@ -6,16 +6,11 @@
 
 ### GRASP Compliance
 The system is designed with **High Cohesion** and **Low Coupling**:
-* **Information Expert**: The `TradeService` acts as the expert for business logic, handling balance validations and asset acquisition.
-* **Controller**: The `TradeController` manages system events (REST requests) without bloating business logic, delegating execution to services.
-* **Creator**: The JPA Repository layer handles the creation and persistence of entities based on relational mapping.
+* **Information Expert**: The `TradeService` handles business logic, validating balances and asset acquisition.
+* **Controller**: The `TradeController` manages REST requests, delegating execution to services.
+* **Creator**: The JPA Repository layer handles persistence of entities.
 
-### ER Mapping (Entity-Relationship)
-The project utilizes a relational schema with strictly enforced constraints:
-* **One-to-One**: A `User` is linked to a single `VirtualAccount`.
-* **Many-to-One**: Multiple `Asset` records are managed by the system, which users can interact with via transactions.
-
-### System Architecture (Mermaid)
+### System Architecture
 ```mermaid
 graph TD
     subgraph Frontend_Vue
@@ -62,11 +57,11 @@ npm run dev
 ```
 - Port: 5173
 
----
-*Developed as a Full-Stack Design-Pattern-Centric Portfolio Piece.*
-
 ## 🐳 Quick Start with Docker Compose
 To start the entire ecosystem (DB, Backend, Frontend) at once:
 ```bash
 docker-compose up --build
 ```
+
+---
+*Developed as a Full-Stack Design-Pattern-Centric Portfolio Piece.*
