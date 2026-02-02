@@ -1,0 +1,14 @@
+# Java
+**/target/
+**/.mvn/
+**/help.md
+
+# Node
+**/node_modules/
+**/dist/
+
+# IDE
+**/.idea/
+**/.vscode/
+*.iml
+.DS_Store
