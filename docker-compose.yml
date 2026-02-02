@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:alpine
+    container_name: fintrail-db
+    environment:
+      POSTGRES_DB: fintrail
+      POSTGRES_USER: adityashankar
+      POSTGRES_PASSWORD: your_password
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    container_name: fintrail-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/fintrail
+
+  frontend:
+    build: ./frontend
+    container_name: fintrail-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend

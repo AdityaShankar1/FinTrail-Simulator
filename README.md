@@ -64,3 +64,9 @@ npm run dev
 
 ---
 *Developed as a Full-Stack Design-Pattern-Centric Portfolio Piece.*
+
+## 🐳 Quick Start with Docker Compose
+To start the entire ecosystem (DB, Backend, Frontend) at once:
+```bash
+docker-compose up --build
+```
